@@ -57,24 +57,44 @@ echo $user_info;
 echo "<br />";
 
 // multi-dimensional array
-$people = [[
-	'first_name' => 'irfan',
-	'last_name' => 'shukri',
-	'email' => 'irfanshukri203@gmail.com'
-], [
-	'first_name' => 'ivy',
-	'last_name' => 'chi ying',
-	'email' => 'violet_kim_01@gmail.com'
-], [
-	'first_name' => 'john',
-	'last_name' => 'doe',
-	'email' => 'john@gmail.com'
-], [
-	'first_name' => 'jane',
-	'last_name' => 'doe',
-	'email' => 'jane@gmail.com'
-]];
+$people = [
+	$person,
+	[
+		'first_name' => 'ivy',
+		'last_name' => 'chi ying',
+		'email' => 'violet_kim_01@gmail.com'
+	], [
+		'first_name' => 'john',
+		'last_name' => 'doe',
+		'email' => 'john@gmail.com'
+	], [
+		'first_name' => 'jane',
+		'last_name' => 'doe',
+		'email' => 'jane@gmail.com'
+	]
+];
 
 echo "<br />";
+echo "json encode: <br />";
 var_dump(json_encode($people));
 echo "<br />";
+
+echo "<br />";
+echo "json decode: <br />";
+$user = '{"first_name": "aziz", "last_name": "sattar", "email": "aziz@test.com"}';
+$user_profile = json_decode($user);
+var_dump($user_profile);
+
+$first_name_one = $user_profile->{'first_name'};
+$last_name_one = $user_profile->{'last_name'};
+$email = $user_profile->{'email'};
+
+$uc_first_name_one = ucfirst($first_name_one);
+$uc_last_name_one = ucfirst($last_name_one);
+
+$combined_name_as_fullname = "{$uc_first_name_one} {$uc_last_name_one}";
+
+$user_one_full_info = "Fullname: ${combined_name_as_fullname}<br />Email: {$email}";
+
+echo "<br /><br />";
+echo $user_one_full_info;
