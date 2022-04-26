@@ -1,0 +1,14 @@
+{
+  "name": "php_refresher",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Ahmad Irfan Mohammad Shukri",
+  "license": "MIT",
+  "scripts": {
+    "prettier": "prettier"
+  },
+  "devDependencies": {
+    "@prettier/plugin-php": "^0.18.4",
+    "prettier": "^2.6.2"
+  }
+}
